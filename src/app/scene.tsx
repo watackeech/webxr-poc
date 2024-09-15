@@ -15,24 +15,48 @@ import House from "./components/House";
 import Territory from "./components/Territory";
 import { useState } from "react";
 
-const shadowOffset = 20;
+// const shadowOffset = 20;
 const store = createXRStore();
 
 export default function App() {
-	const [red, setRed] = useState(false);
 	return (
 		<>
 			<button onClick={() => store.enterVR()}>Enter VR</button>
 			<Canvas shadows>
 				<XR store={store}>
-					<mesh
-						pointerEventsType={{ deny: "grab" }}
-						onClick={() => setRed(!red)}
-						position={[0, 1, -1]}
-					>
-						<boxGeometry />
-						<meshBasicMaterial color={red ? "red" : "blue"} />
-					</mesh>
+					<SoftShadows />
+					<Sky sunPosition={[200, 100, 100]} />
+					<ambientLight intensity={1.5} />
+					{/* <directionalLight
+						castShadow
+						intensity={1.5}
+						shadow-mapSize={4096}
+						shadow-camera-top={shadowOffset}
+						shadow-camera-bottom={-shadowOffset}
+						shadow-camera-left={shadowOffset}
+						shadow-camera-right={-shadowOffset}
+						position={[100, 100, 100]}
+					/> */}
+					<Physics gravity={[0, -20, 0]}>
+						<Ground />
+						{/* <House />
+						<Territory /> */}
+						<Player />
+						<Cubes />
+					</Physics>
+					{/* <EffectComposer>
+						<DepthOfField
+							focusDistance={0}
+							focalLength={0.02}
+							bokehScale={2}
+							height={480}
+						/>
+						<Bloom
+							luminanceThreshold={0}
+							luminanceSmoothing={0.9}
+							height={300}
+						/>
+					</EffectComposer> */}
 				</XR>
 			</Canvas>
 		</>
