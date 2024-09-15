@@ -10,6 +10,7 @@ import House from "./components/House";
 import Territory from "./components/Territory";
 
 const store = createXRStore();
+const shadowOffset = 20;
 
 export default function App() {
 	return (
@@ -26,11 +27,15 @@ export default function App() {
 						intensity={1.5}
 						shadow-mapSize={4096}
 						position={[100, 100, 100]}
+						shadow-camera-top={shadowOffset}
+						shadow-camera-bottom={-shadowOffset}
+						shadow-camera-left={shadowOffset}
+						shadow-camera-right={-shadowOffset}
 					/>
 					<Physics gravity={[0, -20, 0]}>
 						<Ground />
 						<Territory />
-						{/* <House /> */}
+						<House />
 						<Player />
 						<Cubes />
 					</Physics>
