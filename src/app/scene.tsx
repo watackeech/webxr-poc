@@ -21,10 +21,9 @@ export default function App() {
 	return (
 		<>
 			<button onClick={() => store.enterVR()}>Enter VR</button>
-			<Canvas shadows camera={{ fov: 45, position: [0, 2, 5] }}>
+			<Canvas shadows>
 				<XR store={store}>
 					<SoftShadows />
-					<PointerLockControls />
 					<Sky sunPosition={[200, 100, 100]} />
 					<ambientLight intensity={1.5} />
 					<directionalLight
