@@ -24,7 +24,7 @@ export default function App() {
 					<ambientLight intensity={2} />
 					<directionalLight
 						castShadow
-						intensity={1.5}
+						intensity={2}
 						shadow-mapSize={4096}
 						position={[100, 100, 100]}
 						shadow-camera-top={shadowOffset}

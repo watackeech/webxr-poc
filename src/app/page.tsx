@@ -4,6 +4,6 @@ import React from "react";
 
 const SceneCanvas = dynamic(() => import("./scene"), { ssr: false });
 
-export default function Home() {
+export default function App() {
 	return <SceneCanvas />;
 }
