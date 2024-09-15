@@ -27,36 +27,20 @@ export default function App() {
 					<SoftShadows />
 					<Sky sunPosition={[200, 100, 100]} />
 					<ambientLight intensity={1.5} />
-					{/* <directionalLight
+					<directionalLight
 						castShadow
 						intensity={1.5}
 						shadow-mapSize={4096}
-						shadow-camera-top={shadowOffset}
-						shadow-camera-bottom={-shadowOffset}
-						shadow-camera-left={shadowOffset}
-						shadow-camera-right={-shadowOffset}
 						position={[100, 100, 100]}
-					/> */}
+					/>
 					<Physics gravity={[0, -20, 0]}>
 						<Ground />
+						<Territory />
 						{/* <House />
 						<Territory /> */}
 						<Player />
 						<Cubes />
 					</Physics>
-					{/* <EffectComposer>
-						<DepthOfField
-							focusDistance={0}
-							focalLength={0.02}
-							bokehScale={2}
-							height={480}
-						/>
-						<Bloom
-							luminanceThreshold={0}
-							luminanceSmoothing={0.9}
-							height={300}
-						/>
-					</EffectComposer> */}
 				</XR>
 			</Canvas>
 		</>
