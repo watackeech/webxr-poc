@@ -19,6 +19,7 @@ const shadowOffset = 20;
 
 export default function Scene() {
 	const store = createXRStore();
+	store.enterAR();
 	return (
 		<Canvas shadows camera={{ fov: 45, position: [0, 2, 5] }}>
 			<XR store={store}>

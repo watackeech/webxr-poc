@@ -1,12 +1,8 @@
-"use client";
-import { useRouter } from "next/navigation";
+import dynamic from "next/dynamic";
+import React from "react";
+
+const SceneCanvas = dynamic(() => import("./scene"), { ssr: false });
 
 export default function Home() {
-	const router = useRouter();
-
-	return (
-		<>
-			<button onClick={() => router.push("/scene")}>Enter VR</button>
-		</>
-	);
+	return <SceneCanvas />;
 }
