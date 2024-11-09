@@ -8,6 +8,7 @@ import Player from "./components/Player";
 import { Cubes } from "./components/Cube";
 import House from "./components/House";
 import Territory from "./components/Territory";
+import ScreenCapture from "./components/ScreenCapture";
 
 const store = createXRStore();
 const shadowOffset = 20;
@@ -16,6 +17,7 @@ export default function App() {
 	return (
 		<>
 			<button onClick={() => store.enterVR()}>Enter VR</button>
+			<ScreenCapture />
 			<Canvas shadows>
 				<PointerLockControls />
 				<XR store={store}>
